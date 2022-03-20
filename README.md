@@ -18,12 +18,12 @@ in 1937 on a 40-acre campus where it currently resides. The first building, whic
 
 |                                             |                                             |                                             |
 | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: |
-| <img src="images/IMG_2922.jpg" width="100"> | <img src="images/IMG_3013.jpg" width="100"> | <img src="images/IMG_3011.jpg" width="100"> |
+| <img src="images/IMG_2922.jpg" width="250"> | <img src="images/IMG_3013.jpg" width="250"> | <img src="images/IMG_3011.jpg" width="250"> |
 
 
 |                                           |                                           |                                           |
 | :---------------------------------------: | :---------------------------------------: | :---------------------------------------: |
-| <img src="images/IMG_2929.jpg" width=300> | <img src="images/IMG_2926.jpg" width=300> | <img src="images/IMG_3024.jpg" width=300> |
+| <img src="images/IMG_2929.jpg" width=200> | <img src="images/IMG_2926.jpg" width=200> | <img src="images/IMG_3024.jpg" width=200> |
 
 
 
