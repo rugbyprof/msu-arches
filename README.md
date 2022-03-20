@@ -27,7 +27,7 @@ in 1937 on a 40-acre campus where it currently resides. The first building, whic
 
 
 
-This projects sound easy on the surface, until you look at all the sub components that should be created to accompany the main project of finding arches within architectural photos (pictures of buildings) :) 
+The project of finding arches within architectural photos (pictures of buildings)sounds pretty easy. It might sound easy on the surface, until you look at all the components that should be created to accompany the image feature classification / object identification component. 
 
 
 ### Overview
@@ -61,20 +61,6 @@ in 1937 on a 40-acre campus where it currently resides. The first building, whic
 | <img src="http://www.phmc.state.pa.us/portal/communities/architecture/images/spanishcolrevival_postofficeatsayre_bradford_800px.jpg" width="500"> |
 
 </a>
-
-
-Spanish Revival Post Office[^2]
-
-
-Here is a simple footnote.
-
-<img src="images/IMG_2922.jpg
-<img src="images/IMG_3013.jpg
-<img src="images/IMG_3011.jpg
-<img src="images/IMG_2929.jpg
-<img src="images/IMG_2926.jpg
-<img src="images/IMG_2922.jpg
-<img src="images/IMG_3024.jpg
 
 
 # #References: 
