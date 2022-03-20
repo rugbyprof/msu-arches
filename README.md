@@ -15,7 +15,7 @@ in 1937 on a 40-acre campus where it currently resides. The first building, whic
 
 |                                             |                                             |                                             |
 | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: |
-| <img src="images/IMG_2922.jpg" width="250"> | <img src="images/IMG_3013.jpg" width="250"> | <img src="images/IMG_3011.jpg" width="250"> |
+| <img src="images/IMG_2922.jpg" width="250"> | <img src="images/_edited_.jpg" width="250"> | <img src="images/IMG_3011.jpg" width="250"> |
 |                   Hardin                    |                  DL Ligon                   |                  DL Ligon                   |
 
 |                                                    |                                                    |                                             |
