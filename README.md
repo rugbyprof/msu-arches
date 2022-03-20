@@ -33,6 +33,9 @@ in 1937 on a 40-acre campus where it currently resides. The first building, whic
 | <img src="images/IMG_2929.jpg" width=200> | <img src="images/IMG_2926.jpg" width=200> | <img src="images/IMG_3024.jpg" width=200> |
 
 
+|                                                  |                                           |                                           |
+| :----------------------------------------------: | :---------------------------------------: | :---------------------------------------: |
+| <img src="images/IMG_2929_edited.jpg" width=200> | <img src="images/IMG_2926.jpg" width=200> | <img src="images/IMG_3024.jpg" width=200> |
 
 The project of finding arches within architectural photos (pictures of buildings)sounds pretty easy. It might sound easy on the surface, until you look at all the components that should be created to accompany the image feature classification / object identification component. 
 
