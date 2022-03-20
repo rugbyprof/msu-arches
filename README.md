@@ -9,11 +9,9 @@ in 1937 on a 40-acre campus where it currently resides. The first building, whic
 
 
 <p align="center">
-
 |                                                          Spanish Revival Post Office[^2]                                                          |
 | :-----------------------------------------------------------------------------------------------------------------------------------------------: |
 | <img src="http://www.phmc.state.pa.us/portal/communities/architecture/images/spanishcolrevival_postofficeatsayre_bradford_800px.jpg" width="400"> |
-
 </a>
 
 |                                             |                                             |                                             |
