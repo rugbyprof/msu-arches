@@ -13,10 +13,10 @@ in 1937 on a 40-acre campus where it currently resides. The first building, whic
 | <img src="http://www.phmc.state.pa.us/portal/communities/architecture/images/spanishcolrevival_postofficeatsayre_bradford_800px.jpg" width="400"> |
 
 
-|                                             |                                               |                                             |
-| :-----------------------------------------: | :-------------------------------------------: | :-----------------------------------------: |
-| <img src="images/IMG_2922.jpg" width="250"> | <img src="images/_IMG_3013_.jpg" width="250"> | <img src="images/IMG_3011.jpg" width="250"> |
-|                   Hardin                    |                   DL Ligon                    |                  DL Ligon                   |
+|                                             |                                              |                                             |
+| :-----------------------------------------: | :------------------------------------------: | :-----------------------------------------: |
+| <img src="images/IMG_2922.jpg" width="250"> | <img src="images/IMG_3013_.jpg" width="250"> | <img src="images/IMG_3011.jpg" width="250"> |
+|                   Hardin                    |                   DL Ligon                   |                  DL Ligon                   |
 
 |                                                    |                                                    |                                                    |
 | :------------------------------------------------: | :------------------------------------------------: | :------------------------------------------------: |
