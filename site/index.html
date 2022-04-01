@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <script charset="utf-8" src="js/app.js"></script>
+    <link rel="stylesheet" href="css/app.css" /> -->
+</head>
+
+<body>
+    <h1>Hello!</h1>
+    <canvas id="canvas"></canvas>
+    <div style="display:none;">
+        <img id="source" src="../images/IMG_2917.jpg" width="300" height="227">
+    </div>
+    <script>
+        var canvasOffset;
+        var offsetX;
+        var offsetY;
+        var startX;
+        var startY;
+        var isDrawing = false;
+
+
+        //https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage#examples
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const image = new Image(200, 150); // Using optional size for image
+
+        image.onload = drawImageScaledSize; // Draw when image has loaded
+        image.src = '../images/IMG_2917.jpg';
+
+
+
+        // canvas.addEventListener('click', event => {
+        //     drawYellowRectangle();
+        // });
+
+        // Load an image of intrinsic size 300x227 in CSS pixels
+
+        // draw lines
+        //https://jsfiddle.net/m1erickson/NnZ7a/
+
+        //https://jsfiddle.net/qGzkG/2/
+
+
+
+        canvas.addEventListener('mousedown', event => {
+            handleMouseDown(event);
+        });
+
+        canvas.addEventListener('mouseup', event => {
+            handleMouseUp(event);
+        });
+
+        canvas.addEventListener('mousemove', event => {
+            handleMouseMove(event);
+        });
+
+
+        // canvasOffset = $("#canvas").offset();
+        // offsetX = canvasOffset.left;
+        // offsetY = canvasOffset.top;
+        function getMousePos(canvas, evt) {
+            var rect = canvas.getBoundingClientRect();
+            return {
+                x: evt.clientX - rect.left,
+                y: evt.clientY - rect.top
+            };
+        }
+
+
+
+        // $("#canvas").on('mousedown', function (e) {
+        //     handleMouseDown(e);
+        // }).on('mouseup', function (e) {
+        //     handleMouseUp();
+        // }).on('mousemove', function (e) {
+        //     handleMouseMove(e);
+        // });
+
+
+
+        function handleMouseDown(e) {
+            canvas.style.cursor = "crosshair";
+            isDrawing = true
+            let pos = getMousePos(canvas, e)
+            startX = parseInt(pos.x);
+            startY = parseInt(pos.y);
+        }
+
+
+        function handleMouseUp() {
+            isDrawing = false;
+            canvas.style.cursor = "default";
+        }
+
+        function handleMouseMove(e) {
+            if (isDrawing) {
+                let pos = getMousePos(canvas, e)
+                var mouseX = parseInt(pos.x);
+                var mouseY = parseInt(pos.y);
+
+                clearScreen()
+                //ctx.clearRect(startX, startY, pos.x - startX, pos.y - startY);
+                ctx.beginPath();
+                ctx.rect(startX, startY, mouseX - startX, mouseY - startY);
+                ctx.stroke();
+
+            }
+        }
+
+        function clearScreen() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawImageScaledSize()
+        }
+
+        function drawImageScaledSize() {
+
+            let ratio = 0
+            let width = 600;
+            let height = 0;
+
+            ratio = this.naturalHeight / this.naturalWidth;
+
+            height = width * ratio;
+            this.height = this.width * ratio
+
+            // Use the intrinsic size of image in CSS pixels for the canvas element
+            canvas.width = width;
+            canvas.height = height;
+
+            console.log(this.width);
+            console.log(this.height);
+
+
+            // Will draw the image as 300x227, ignoring the custom size of 60x45
+            // given in the constructor
+            ctx.drawImage(this, 0, 0, width, height);
+
+            // To use the custom size we'll have to specify the scale parameters
+            // using the element's width and height properties - lets draw one
+            // on top in the corner:
+            ctx.drawImage(this, 0, 0, this.width, this.height);
+        }
+
+        function drawYellowRectangle() {
+
+            const canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+
+            context.beginPath();
+            context.rect(188, 50, 200, 100);
+            context.fillStyle = 'yellow';
+            context.fill();
+            context.lineWidth = 7;
+            context.strokeStyle = 'black';
+            context.stroke();
+        }
+    </script>
+</body>
+
+</html>
