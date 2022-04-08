@@ -1,3 +1,6 @@
+""" Code from the April 1st research meeting
+"""
+
 from PIL import Image
 import os
 import sys

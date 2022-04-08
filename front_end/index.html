@@ -15,7 +15,8 @@
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/2.0.0-alpha.2/cropper.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/2.0.0-alpha.2/cropper.min.js"></script>
+    <script src="./js/cropper.min.js"></script>
+
     <!-- <script type="module" src="cropper.min.js"></script> -->
 </head>
 
@@ -51,6 +52,8 @@
         const cropper = new Cropper(image, {
             //aspectRatio: 16 / 9,
             //aspectRatio: 1 / 1,
+            scaleX: .5,
+            scaleY: .5,
             crop(event) {
                 console.log(event.detail.x);
                 console.log(event.detail.y);
