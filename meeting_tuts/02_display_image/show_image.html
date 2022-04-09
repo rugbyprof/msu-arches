@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Image Display</title>
+    <!-- <link rel="stylesheet" href="css/main.css" />
+    <link rel="icon" href="images/favicon.png" /> -->
+    <style>
+        #content {
+            padding: 5px;
+            border: red 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <img id="archImage" src="../back_end/images/IMG_2917.jpg" height="600">
+        <label for="images">Choose an Image:</label>
+
+        <select name="image" id="image">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+        </select>
+        <input type="button" id="submit" value="Submit">
+    </div>
+    <script>
+        /**
+         * apiCall: Calls our "fastApi" python backend to get (in this case)
+         *      a list of images to populate our dropdown.
+         * This method, however, will call ANY route (url) and a specified 
+         *      callback method. So it's pretty generic making it helpful.
+         * Params:
+         *      url (string) : the route to call to get data
+         *      callback (function) : if data comes back, send it to tihis callback function
+         * 
+         * Returns:
+         *      nothing as it calls a function with the stuff it gets :) 
+         */
+        function apiCall(url, callback) {
+            // call api route
+            fetch(url)
+                // then get the response (good or bad) and throw error if bad
+                .then(function (response) {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('Something went wrong');
+                })
+                // then call the "callback" function with the returned data
+                .then(function (data) {
+                    console.log(data);
+                    callback(data);
+                })
+                // if major error from api, print a message asking if api is running
+                .catch((error) => {
+                    let message = "<h1>Error: Connecting to: " + url + "</h1>"
+                    message += "<h1>Is your API running?</h1>"
+                    document.getElementById("map").innerHTML = message;
+                    console.log(error)
+                });
+        }
+
+        /**
+         * getDropDownImageName : gets the selected name from he dropdown html element
+         * Params:
+         *      None
+         * Returns:
+         *      (string) name of image
+         */
+        function getDropDownImageName() {
+            // get a reference to the dropdown element
+            var e = document.getElementById("image");
+
+            // pull the selected name from the list
+            var name = e.options[e.selectedIndex].text;
+
+            // return the name
+            return name;
+        }
+        /**
+         * displayImage : replaces the image src in the body of the web page
+         * Params:
+         *      None
+         * Returns:
+         *      (string) name of image
+         */
+        function displayImage() {
+            // call local function to get the selected name
+            let name = getDropDownImageName()
+
+            // remove the "../" from the front of the path
+            name = name.substr(3)
+
+            // make an absolute path for MY COMPUTER! 
+            // THIS WILL NOT WORK ON YOUR LOCAL COMPUTER!
+            name = "/Users/griffin/Dropbox/zarches/msu-arches/back_end/" + name;
+
+            // log to console to verify it works 
+            console.log(name)
+
+            // now actually change the image source of our "img" tag in the body.
+            document.getElementById("archImage").src = name;
+        }
+
+        /**
+         * populateDropDown : adds the image names to our only dropdown list on the webpage
+         * 
+         * Params:
+         *      data (json) : a json list of image names received from api call
+         * Returns:
+         *      Nothing - it just puts the "data" into the dropdown list.
+         */
+        function populateDropDown(data) {
+            // log data to "check" that its really there :)
+            console.log(data);
+
+            // get a reference to the dropdown so we can alter it
+            var select = document.getElementById("image");
+
+            // sets the "stuff" between <select> and </select> to be empty!
+            select.innerHTML = "";
+
+            // loop over our json array 
+            for (var i = 0; i < data.length; i++) {
+                // log the image name
+                console.log(data[i]);
+
+                // create a new <option> stuff </option> tag
+                var el = document.createElement("option");
+
+                // option tags have two values (were using same value for both):
+                // 1) textContent is what people see 
+                el.textContent = data[i];
+
+                // 2) value is what gets used if this textContent is selected
+                el.value = data[i];
+
+                // now actually add the new option tag to the dropdown
+                select.appendChild(el);
+            }
+        }
+
+        // get height of our page window
+        let height = window.innerHeight;
+        console.log(height);
+
+        // this listener will call "displayImage" when the "submit" button is "clicked"
+        document.getElementById("submit").addEventListener("click", displayImage);
+
+        // this event handler uses an inline function definition to run when the window loads
+        // which simply calls our api route, with a callback function to handle the data
+        window.onload = function () {
+            apiCall("http://localhost:8080/images/", populateDropDown);
+        };
+
+    </script>
+</body>
+
+</html>
