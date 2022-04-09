@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Image Display</title>
+    <!-- <link rel="stylesheet" href="css/main.css" />
+    <link rel="icon" href="images/favicon.png" /> -->
+    <style>
+        #content {
+            padding: 5px;
+            border: red 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <img id="archImage" src="../back_end/images/IMG_2917.jpg" height="600">
+        <label for="images">Choose an Image:</label>
+
+        <select name="image" id="image">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+        </select>
+        <input type="button" id="submit" value="Submit">
+    </div>
+    <script>
+
+        function apiCall(url, callback) {
+            fetch(url)
+                .then(function (response) {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('Something went wrong');
+                })
+                .then(function (data) {
+                    console.log(data);
+                    callback(data);
+                }).catch((error) => {
+                    let message = "<h1>Error: Connecting to: " + url + "</h1>"
+                    message += "<h1>Is your API running?</h1>"
+                    document.getElementById("map").innerHTML = message;
+                    console.log(error)
+                });
+        }
+
+        function getDropDownImageName() {
+            // get a reference to the dropdown element
+            var e = document.getElementById("image");
+
+            // pull the selected name from the list
+            var name = e.options[e.selectedIndex].text;
+
+            // return the name
+            return name;
+        }
+
+        function displayImage() {
+            let name = getDropDownImageName()
+
+            name = name.substr(3)
+
+            name = "/Users/griffin/Dropbox/zarches/msu-arches/back_end/" + name;
+
+            console.log(name)
+            document.getElementById("archImage").src = name;
+        }
+
+        function populateDropDown(data) {
+            console.log(data);
+            var select = document.getElementById("image");
+
+            select.innerHTML = "";
+
+            for (var i = 0; i < data.length; i++) {
+                var opt = data[i];
+                console.log(opt);
+                var el = document.createElement("option");
+                el.textContent = opt;
+                el.value = opt;
+                select.appendChild(el);
+            }
+        }
+
+        let height = window.innerHeight;
+        console.log(height);
+
+        //let imageList = httpGet("http://localhost:8080/images/");
+
+        document.getElementById("submit").addEventListener("click", displayImage);
+
+        window.onload = function () {
+            apiCall("http://localhost:8080/images/", populateDropDown);
+        };
+
+    </script>
+</body>
+
+</html>
